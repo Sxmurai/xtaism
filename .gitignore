@@ -8,7 +8,7 @@ logs/
 mappingviewer/
 reobf/
 runtime/
-src/minecraft/net
+src/minecraft/
 temp/
 
 *.bat
