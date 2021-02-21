@@ -19,11 +19,12 @@ public class XtaismGUI extends GuiIngame {
 	public void renderGameOverlay(float partialTicks) {
 		super.renderGameOverlay(partialTicks);
 		
-        ScaledResolution scaledresolution = new ScaledResolution(this.mc);
-        FontRenderer fontrenderer = this.getFontRenderer();
-        GlStateManager.enableBlend();
-        
-    	this.renderHacksOverlay(fontrenderer, scaledresolution.getScaledWidth());
+		ScaledResolution scaledRes = new ScaledResolution(this.mc);
+		FontRenderer fontRenderer = this.getFontRenderer();
+		GlStateManager.enableBlend();
+		
+		// add the things to render
+		this.renderExpBar(scaledRes, scaledRes.getScaledWidth());
 	}
 	
 	private void renderHacksOverlay(FontRenderer renderer, int displayWidth) {
