@@ -1,12 +1,14 @@
 package xyz.aesthetical.xtaism.entities.hacks;
 
+import net.minecraft.client.Minecraft;
 import xyz.aesthetical.xtaism.entities.Module;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Category;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 
-public class Mod implements Module {
+public abstract class Mod implements Module {
 	private boolean toggled = false;
+	public Minecraft mc = Minecraft.getMinecraft();
 	
 	public Hack getHackInfo() throws NullPointerException {
 		return this.getClass().getAnnotation(Hack.class);

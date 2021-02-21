@@ -1,5 +1,6 @@
 package xyz.aesthetical.xtaism;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -8,22 +9,19 @@ import org.apache.logging.log4j.Logger;
 import org.reflections.Reflections;
 
 import xyz.aesthetical.xtaism.entities.hacks.Mod;
+import xyz.aesthetical.xtaism.hacks.movement.*;
 
 public class Xtaism {
 	protected ArrayList<Mod> hacks;
 	protected Reflections reflections;
 	private Logger LOGGER = LogManager.getLogger(Xtaism.class);
 	
-	public void init() {
+	public void init() throws InstantiationException, IllegalAccessException {
 		hacks = new ArrayList();
-		reflections = new Reflections("xyz.aesthetical.xtaism.hacks");
 		
-		Set<Class<? extends Mod>> hacks = reflections.getSubTypesOf(Mod.class);
-		
-		for (Class<? extends Mod> hack : hacks) {
-			hacks.add(hack);
-		}
-		
+		// Add movement hacks	
+		hacks.add(new AutoSprint());
+				
 		LOGGER.info("Loaded {} hacks", hacks.size());
 	}
 	
