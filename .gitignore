@@ -1,0 +1,17 @@
+bin/
+conf/
+docs/
+eclipse/
+jars/
+lib/
+logs/
+mappingviewer/
+reobf/
+runtime/
+src/minecraft/net
+temp/
+
+*.bat
+*.sh
+CHANGELOG
+LICENSE.txt
