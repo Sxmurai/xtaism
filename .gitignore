@@ -9,6 +9,7 @@ mappingviewer/
 reobf/
 runtime/
 src/minecraft/net
+src/minecraft/Start.java
 temp/
 
 *.bat
