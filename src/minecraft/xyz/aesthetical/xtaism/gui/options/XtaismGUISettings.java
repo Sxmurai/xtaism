@@ -30,7 +30,7 @@ public class XtaismGUISettings extends GuiScreen {
 		this.showCoordsButton =  new GuiButton(419, this.width / 2 + 5, this.height / 6 + 48 - 6, 150, 20, options.shouldShowCoords() ? "Hide Coordinates" : "Show Coordinates");
 		this.buttonList.add(this.showCoordsButton);
 		
-        this.buttonList.add(new GuiButton(420, this.width / 2 - 100, this.height / 6 + 168, I18n.format("gui.done")));
+		this.buttonList.add(new GuiButton(420, this.width / 2 - 100, this.height / 6 + 168, I18n.format("gui.done")));
 	}
 	
 	protected void actionPerformed(GuiButton button) throws IOException {
@@ -53,8 +53,8 @@ public class XtaismGUISettings extends GuiScreen {
 	}
 	
 	public void drawScreen(int mouseX, int mouseY, float partialTick) {
-        this.drawDefaultBackground();
-        this.drawCenteredString(this.fontRenderer, "Xtaism Options", this.width / 2, 15, 16777215);
+		this.drawDefaultBackground();
+		this.drawCenteredString(this.fontRenderer, "Xtaism Options", this.width / 2, 15, 16777215);
 		super.drawScreen(mouseX, mouseY, partialTick);
 	}
 	
