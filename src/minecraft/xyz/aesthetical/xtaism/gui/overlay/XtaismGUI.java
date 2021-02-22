@@ -64,11 +64,12 @@ public class XtaismGUI extends GuiIngame {
 		String text = getOverworldCoords(inNether);
 		
 		int posX = displayWidth - renderer.getStringWidth(text) - 5;
+		int color = getColorBasedOnTime();
 		
 		renderer.drawString(
 			text, 
 			posX, displayHeight - 10, 
-			Integer.parseInt("ffffff", 16)
+			color
 		);
 		
 		if (inNether) {
@@ -79,7 +80,7 @@ public class XtaismGUI extends GuiIngame {
 			renderer.drawString(
 				textN, 
 				posXN, displayHeight - (renderer.FONT_HEIGHT * 2) - 5, 
-				Integer.parseInt("ffffff", 16)
+				color
 			);	
 		}
 	}
@@ -111,6 +112,7 @@ public class XtaismGUI extends GuiIngame {
 		String text = "FPS: " + String.valueOf(mc.getDebugFPS());
 		
 		int posX = displayWidth - renderer.getStringWidth(text) - 5;
+		int color = getColorBasedOnTime();
 		
 		renderer.drawString(
 			text, 
@@ -118,7 +120,7 @@ public class XtaismGUI extends GuiIngame {
 			mc.xtaism.settings.shouldShowCoords() 
 				? displayHeight - (renderer.FONT_HEIGHT * (inNether ? 3 : 2)) - 5 
 				: displayHeight - 10, 
-			Integer.parseInt("ffffff", 16)
+			color
 		);
 	}
 	
@@ -128,5 +130,10 @@ public class XtaismGUI extends GuiIngame {
 		format.setMaximumFractionDigits(0);
 		
 		return format.format(num);
+	}
+	
+	private int getColorBasedOnTime() {
+		if (Minecraft.getMinecraft().player.dimension == -1) return 16777215;
+		return Minecraft.getMinecraft().world.getWorldTime() < 13000 ? 0 : 16777215;
 	}
 }
