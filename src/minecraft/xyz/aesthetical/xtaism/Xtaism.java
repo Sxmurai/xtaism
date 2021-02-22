@@ -52,13 +52,17 @@ public class Xtaism {
 	
 	public void handleUpdate() {
 		for (Mod hack : hacks) {
-			hack.onUpdate();
+			if (hack.isToggled()) {
+				hack.onUpdate();				
+			}
 		}
 	}
 	
 	public void handleRender() {
 		for (Mod hack : hacks) {
-			hack.onRender();
+			if (hack.isToggled()) {
+				hack.onRender();				
+			}
 		}
 	}
 	
