@@ -18,6 +18,7 @@ import net.minecraft.client.gui.GuiScreen;
 
 public class XtaismOptions {
 	private static boolean SHOW_FPS = true;
+	private static boolean SHOW_COORDS = true;
 	
 	public File optionsFile;
 	
@@ -32,6 +33,22 @@ public class XtaismOptions {
 		return SHOW_FPS;
 	}
 	
+	public boolean shouldShowCoords() {
+		return SHOW_COORDS;
+	}
+	
+	public void set(Opt option, boolean value) {
+		switch (option) {
+			case SHOW_FPS:
+				SHOW_FPS = value;
+				break;
+				
+			case SHOW_COORDS:
+				SHOW_COORDS = value;
+				break;
+		}
+	}
+	
 	public void saveSettings() throws FileNotFoundException {
 		PrintWriter writer;
 		
@@ -39,6 +56,7 @@ public class XtaismOptions {
 			writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(this.optionsFile), StandardCharsets.UTF_8));
 			
 			writer.printf("showFps=%s", SHOW_FPS);	
+			writer.printf("showCoords=%s", SHOW_COORDS);	
 			
 			writer.close();
 		} catch (Exception e) {
@@ -60,9 +78,18 @@ public class XtaismOptions {
 				case "showFps":
 					SHOW_FPS = data[1].equals("true");
 					break;
+					
+				case "showCoords":
+					SHOW_COORDS = data[1].equals("true");
+					break;
 			}
 		}
 		
 		return true;
+	}
+	
+	public enum Opt {
+		SHOW_FPS,
+		SHOW_COORDS
 	}
 }
