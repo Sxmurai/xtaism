@@ -13,7 +13,7 @@ import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 	description = "Makes you sprint whenever you start walking",
 	color = 11261429
 )
-@Keybind(key = -1)
+@Keybind(key = Keyboard.KEY_NONE)
 @Category(category = Group.MOVEMENT)
 public class AutoSprint extends Mod {
 	@Override

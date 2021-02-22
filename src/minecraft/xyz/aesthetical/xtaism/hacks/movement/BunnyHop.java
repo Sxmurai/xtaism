@@ -9,7 +9,7 @@ import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 
 @Hack(name = "Bunnyhop", description = "Makes you jump while running", color = 11261429)
-@Keybind(key = Keyboard.KEY_0)
+@Keybind(key = Keyboard.KEY_NONE)
 @Category(category = Group.MOVEMENT)
 public class BunnyHop extends Mod {
 	@Override
