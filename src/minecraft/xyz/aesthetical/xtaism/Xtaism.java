@@ -27,6 +27,7 @@ public class Xtaism {
 		
 		// Add movement hacks	
 		hacks.add(new AutoSprint());
+		hacks.add(new BunnyHop());
 				
 		LOGGER.info("Loaded {} hacks", hacks.size());
 		

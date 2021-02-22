@@ -32,7 +32,7 @@ public class XtaismGUI extends GuiIngame {
 		GlStateManager.enableBlend();
 		
 		// add the things to render
-		this.renderExpBar(scaledRes, scaledRes.getScaledWidth());
+		this.renderHacksOverlay(fontRenderer, scaledRes.getScaledWidth());
 		
 		if (mc.xtaism.settings.shouldShowCoords()) {
 			this.renderCoordinateOverlay(fontRenderer, scaledRes.getScaledWidth(), scaledRes.getScaledHeight());
@@ -95,7 +95,8 @@ public class XtaismGUI extends GuiIngame {
 		
 		if (inNether) {
 			for (String coord : coords) {
-				if (coord == f(player.posY)) {
+				// if its the y value, we dont want to multiply by 8
+				if (coords.indexOf(coord) == 1) {
 					continue;
 				}
 				

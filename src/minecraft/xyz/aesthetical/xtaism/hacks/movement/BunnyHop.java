@@ -8,25 +8,16 @@ import xyz.aesthetical.xtaism.entities.hacks.annotations.Category;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 
-@Hack(
-	name = "Auto Sprint", 
-	description = "Makes you sprint whenever you start walking",
-	color = 11261429
-)
-@Keybind(key = -1)
+@Hack(name = "Bunnyhop", description = "Makes you jump while running", color = 11261429)
+@Keybind(key = Keyboard.KEY_0)
 @Category(category = Group.MOVEMENT)
-public class AutoSprint extends Mod {
+public class BunnyHop extends Mod {
 	@Override
 	public void onUpdate() {
-		if (!mc.gameSettings.keyBindForward.isPressed()) {
+		if (!mc.player.isSprinting() || !mc.player.onGround) {
 			return;
 		}
 		
-		mc.player.setSprinting(true);
-	}
-	
-	@Override
-	public void onDisable() {
-		mc.player.setSprinting(false);
+		mc.player.jump();
 	}
 }
