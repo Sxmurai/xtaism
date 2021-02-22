@@ -1,6 +1,14 @@
 package xyz.aesthetical.xtaism.gui.overlay;
 
+import java.math.RoundingMode;
+import java.text.NumberFormat;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.gui.ScaledResolution;
@@ -25,6 +33,14 @@ public class XtaismGUI extends GuiIngame {
 		
 		// add the things to render
 		this.renderExpBar(scaledRes, scaledRes.getScaledWidth());
+		
+		if (mc.xtaism.settings.shouldShowCoords()) {
+			this.renderCoordinateOverlay(fontRenderer, scaledRes.getScaledWidth(), scaledRes.getScaledHeight());
+		}
+		
+		if (mc.xtaism.settings.shouldShowFPS()) {
+			this.renderFPSOverlay(fontRenderer, scaledRes.getScaledWidth(), scaledRes.getScaledHeight());
+		}
 	}
 	
 	private void renderHacksOverlay(FontRenderer renderer, int displayWidth) {
@@ -39,5 +55,78 @@ public class XtaismGUI extends GuiIngame {
 				++posY;
 			}
 		}
+	}
+	
+	private void renderCoordinateOverlay(FontRenderer renderer, int displayWidth, int displayHeight) {
+		EntityPlayerSP player = Minecraft.getMinecraft().player;
+		boolean inNether = player.dimension == -1;
+				
+		String text = getOverworldCoords(inNether);
+		
+		int posX = displayWidth - renderer.getStringWidth(text) - 5;
+		
+		renderer.drawString(
+			text, 
+			posX, displayHeight - 10, 
+			Integer.parseInt("ffffff", 16)
+		);
+		
+		if (inNether) {
+			String textN = String.format("X: %s, Y: %S, Z: %s", f(player.posX), f(player.posY), f(player.posZ));
+			
+			int posXN = displayWidth - renderer.getStringWidth(textN) - 5;
+						
+			renderer.drawString(
+				textN, 
+				posXN, displayHeight - (renderer.FONT_HEIGHT * 2) - 5, 
+				Integer.parseInt("ffffff", 16)
+			);	
+		}
+	}
+	
+	public String getOverworldCoords(boolean inNether) {
+		EntityPlayerSP player = Minecraft.getMinecraft().player;
+
+		List<String> coords = new LinkedList();
+		coords.add(f(player.posX));
+		coords.add(f(player.posY));
+		coords.add(f(player.posZ));
+		
+		if (inNether) {
+			for (String coord : coords) {
+				if (coord == f(player.posY)) {
+					continue;
+				}
+				
+				coords.set(coords.indexOf(coord), String.valueOf(Integer.parseInt(coord) * 8));
+			}
+		}
+		
+		return String.format("%sX: %s, Y: %s, Z: %s", inNether ? "Overworld - " : "", coords.get(0), coords.get(1), coords.get(2));
+	}
+	
+	private void renderFPSOverlay(FontRenderer renderer, int displayWidth, int displayHeight) {
+		boolean inNether = Minecraft.getMinecraft().player.dimension == -1;
+		
+		String text = "FPS: " + String.valueOf(mc.getDebugFPS());
+		
+		int posX = displayWidth - renderer.getStringWidth(text) - 5;
+		
+		renderer.drawString(
+			text, 
+			posX, 
+			mc.xtaism.settings.shouldShowCoords() 
+				? displayHeight - (renderer.FONT_HEIGHT * (inNether ? 3 : 2)) - 5 
+				: displayHeight - 10, 
+			Integer.parseInt("ffffff", 16)
+		);
+	}
+	
+	private String f(double num) {
+		NumberFormat format = NumberFormat.getInstance();
+		format.setRoundingMode(RoundingMode.DOWN);
+		format.setMaximumFractionDigits(0);
+		
+		return format.format(num);
 	}
 }
