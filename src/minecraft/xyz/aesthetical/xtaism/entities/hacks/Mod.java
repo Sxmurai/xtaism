@@ -27,6 +27,9 @@ public abstract class Mod implements Module {
 	public void onDisable() {}
 	public void onUpdate() {}
 	public void onRender() {}
+	public boolean prePacketSent(Packet<?> pk) {
+		return false;
+	}
 	
 	public boolean isToggled() {
 		return toggled;

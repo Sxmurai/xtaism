@@ -68,6 +68,16 @@ public class Xtaism {
 		}
 	}
 	
+	public boolean handlePacketUpdate(Packet<?> pk) {
+		for (Mod hack : hacks) {
+			if (hack.isToggled()) {
+				return hack.prePacketSent(pk);
+			}
+		}
+		
+		return false;
+	}
+	
 	public void handleRender() {
 		for (Mod hack : hacks) {
 			if (hack.isToggled()) {
