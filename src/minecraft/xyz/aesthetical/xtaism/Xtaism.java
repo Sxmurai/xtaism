@@ -10,10 +10,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.Packet;
 import xyz.aesthetical.xtaism.entities.hacks.Mod;
 import xyz.aesthetical.xtaism.gui.options.XtaismGUISettings;
 import xyz.aesthetical.xtaism.gui.options.XtaismOptions;
 import xyz.aesthetical.xtaism.hacks.movement.*;
+import xyz.aesthetical.xtaism.hacks.render.*;
 
 public class Xtaism {
 	protected ArrayList<Mod> hacks;
@@ -28,6 +30,12 @@ public class Xtaism {
 		// Add movement hacks	
 		hacks.add(new AutoSprint());
 		hacks.add(new BunnyHop());
+		hacks.add(new Jesus());
+		
+		// Add render
+		hacks.add(new ChestESP());
+		hacks.add(new FreeCam());
+		hacks.add(new Fullbright());
 				
 		LOGGER.info("Loaded {} hacks", hacks.size());
 		
@@ -52,6 +60,8 @@ public class Xtaism {
 	
 	public void handleUpdate() {
 		for (Mod hack : hacks) {
+			hack.mc = Minecraft.getMinecraft();
+			
 			if (hack.isToggled()) {
 				hack.onUpdate();				
 			}
