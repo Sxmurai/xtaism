@@ -5,9 +5,7 @@ import java.awt.Color;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
 import xyz.aesthetical.xtaism.entities.hacks.Group;
 import xyz.aesthetical.xtaism.entities.hacks.Mod;
@@ -25,7 +23,7 @@ public class PlayerESP extends Mod {
 		GL11.glPushMatrix();
 		
 		for (EntityPlayer player : mc.world.playerEntities) {
-			float dis = (float) (Minecraft.getMinecraft().player.getDistanceSq(player.lastTickPosX, player.lastTickPosY, player.lastTickPosZ) / 20f);
+			float dis = (float) (mc.player.getDistanceSq(player.lastTickPosX, player.lastTickPosY, player.lastTickPosZ) / 20f);
 			
 			double[] coords = getGlPos(player.posX, player.posY, player.posZ);
 			RenderUtils.drawTracers(coords[0], coords[1], coords[2], 2 - dis, dis, 0);

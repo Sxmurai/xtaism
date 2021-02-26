@@ -5,9 +5,6 @@ import java.awt.Color;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import xyz.aesthetical.xtaism.entities.hacks.Group;
@@ -22,9 +19,7 @@ import xyz.aesthetical.xtaism.utils.RenderUtils;
 @Category(category = Group.RENDER)
 public class ChestESP extends Mod {
 	@Override
-	public void onRender() {
-		Minecraft mc = Minecraft.getMinecraft();
-		
+	public void onRender() {		
 		GL11.glPushMatrix();
 		
 		for (TileEntity e : mc.world.loadedTileEntityList) {

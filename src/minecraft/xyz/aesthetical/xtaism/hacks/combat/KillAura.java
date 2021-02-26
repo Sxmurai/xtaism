@@ -2,12 +2,7 @@ package xyz.aesthetical.xtaism.hacks.combat;
 
 import org.lwjgl.input.Keyboard;
 
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.passive.EntityAmbientCreature;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.Vec3d;
 import xyz.aesthetical.xtaism.entities.hacks.Group;

@@ -3,18 +3,16 @@ package xyz.aesthetical.xtaism.hacks.movement;
 import org.lwjgl.input.Keyboard;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
-import net.minecraft.network.Packet;
 import net.minecraft.network.play.client.CPacketPlayer;
-import net.minecraft.network.play.server.SPacketEntity;
 import net.minecraft.util.math.BlockPos;
 import xyz.aesthetical.xtaism.entities.hacks.Group;
 import xyz.aesthetical.xtaism.entities.hacks.Mod;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Category;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
+
 
 @Hack(name = "Jesus", description = "Makes you walk on water", color = 11261429)
 @Keybind(key = Keyboard.KEY_J)

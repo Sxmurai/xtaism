@@ -2,8 +2,6 @@ package xyz.aesthetical.xtaism.hacks.other;
 
 import org.lwjgl.input.Keyboard;
 
-import com.google.common.base.Strings;
-
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.client.CPacketChatMessage;
 import xyz.aesthetical.xtaism.entities.hacks.Group;
