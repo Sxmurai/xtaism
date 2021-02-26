@@ -45,12 +45,13 @@ public class Xtaism {
 		hacks.add(new AntiCactus());
 		
 		// Add combat hacks
+		hacks.add(new AutoCrystal());
 		hacks.add(new AutoTotem());
+		hacks.add(new Criticals());
+		hacks.add(new KillAura());
 		
 		// Add other hacks
-		hacks.add(new Criticals());
 		hacks.add(new FancyChat());
-		hacks.add(new KillAura());
 				
 		LOGGER.info("Loaded {} hacks", hacks.size());
 		
