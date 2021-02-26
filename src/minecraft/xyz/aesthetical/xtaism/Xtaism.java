@@ -14,6 +14,7 @@ import net.minecraft.network.Packet;
 import xyz.aesthetical.xtaism.entities.hacks.Mod;
 import xyz.aesthetical.xtaism.gui.options.XtaismGUISettings;
 import xyz.aesthetical.xtaism.gui.options.XtaismOptions;
+import xyz.aesthetical.xtaism.hacks.blocks.*;
 import xyz.aesthetical.xtaism.hacks.movement.*;
 import xyz.aesthetical.xtaism.hacks.render.*;
 
@@ -36,6 +37,10 @@ public class Xtaism {
 		hacks.add(new ChestESP());
 		hacks.add(new FreeCam());
 		hacks.add(new Fullbright());
+		hacks.add(new PlayerESP());
+		
+		// Add block related hacks
+		hacks.add(new AntiCactus());
 				
 		LOGGER.info("Loaded {} hacks", hacks.size());
 		
@@ -66,16 +71,6 @@ public class Xtaism {
 				hack.onUpdate();				
 			}
 		}
-	}
-	
-	public boolean handlePacketUpdate(Packet<?> pk) {
-		for (Mod hack : hacks) {
-			if (hack.isToggled()) {
-				return hack.prePacketSent(pk);
-			}
-		}
-		
-		return false;
 	}
 	
 	public void handleRender() {

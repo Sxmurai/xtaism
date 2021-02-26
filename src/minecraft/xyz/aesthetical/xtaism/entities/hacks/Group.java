@@ -5,4 +5,5 @@ public enum Group {
 	MOVEMENT,
 	RENDER,
 	PLAYER,
+	BLOCKS,
 }
