@@ -27,7 +27,7 @@ public class PlayerESP extends Mod {
 		for (EntityPlayer player : mc.world.playerEntities) {
 			float dis = (float) (Minecraft.getMinecraft().player.getDistanceSq(player.lastTickPosX, player.lastTickPosY, player.lastTickPosZ) / 20f);
 			
-			double[] coords = getGlPos(player.lastTickPosX, player.lastTickPosY, player.lastTickPosZ);
+			double[] coords = getGlPos(player.posX, player.posY, player.posZ);
 			RenderUtils.drawTracers(coords[0], coords[1], coords[2], 2 - dis, dis, 0);
 		}
 		

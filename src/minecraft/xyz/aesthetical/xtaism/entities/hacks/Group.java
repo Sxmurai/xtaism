@@ -6,4 +6,5 @@ public enum Group {
 	RENDER,
 	PLAYER,
 	BLOCKS,
+	COMBAT,
 }

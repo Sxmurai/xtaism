@@ -22,11 +22,11 @@ public class RenderUtils {
 		GL11.glLineWidth(2);
 		
 		EntityPlayerSP player = Minecraft.getMinecraft().player;
-		Vec3d pos = player.getPositionEyes(Minecraft.getMinecraft().getRenderPartialTicks());
-		
+		Vec3d eyes = player.getLook(Minecraft.getMinecraft().getRenderPartialTicks());
+        
 		GL11.glLoadIdentity();
 		GL11.glBegin(GL11.GL_LINES);
-		GL11.glVertex3d(-pos.x, player.height - player.getEyeHeight(), pos.z);
+		GL11.glVertex3d(eyes.x, player.height + player.getEyeHeight(), eyes.z);
 		GL11.glVertex3d(x, y, z);
 
 		GL11.glEnd();	

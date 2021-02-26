@@ -15,7 +15,9 @@ import xyz.aesthetical.xtaism.entities.hacks.Mod;
 import xyz.aesthetical.xtaism.gui.options.XtaismGUISettings;
 import xyz.aesthetical.xtaism.gui.options.XtaismOptions;
 import xyz.aesthetical.xtaism.hacks.blocks.*;
+import xyz.aesthetical.xtaism.hacks.combat.*;
 import xyz.aesthetical.xtaism.hacks.movement.*;
+import xyz.aesthetical.xtaism.hacks.other.*;
 import xyz.aesthetical.xtaism.hacks.render.*;
 
 public class Xtaism {
@@ -41,6 +43,14 @@ public class Xtaism {
 		
 		// Add block related hacks
 		hacks.add(new AntiCactus());
+		
+		// Add combat hacks
+		hacks.add(new AutoTotem());
+		
+		// Add other hacks
+		hacks.add(new Criticals());
+		hacks.add(new FancyChat());
+		hacks.add(new KillAura());
 				
 		LOGGER.info("Loaded {} hacks", hacks.size());
 		
