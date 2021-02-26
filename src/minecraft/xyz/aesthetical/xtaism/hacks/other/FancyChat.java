@@ -15,8 +15,8 @@ import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 		description = "Makes your messages in chat *fancy*",
 		color = 11261429
 )
-@Keybind(key = Keyboard.KEY_N)
-@Category(category = Group.COMBAT)
+@Keybind(key = Keyboard.KEY_NONE)
+@Category(category = Group.OTHER)
 public class FancyChat extends Mod {
 	@Override
 	public boolean prePacketSent(Packet<?> pk) {

@@ -49,7 +49,7 @@ public class XtaismGUI extends GuiIngame {
 		for (Mod hack : this.mc.xtaism.getHacks()) {
 			if (hack.isToggled()) {
 				// calculate where the text should be, since we're putting it on the right
-				int posX = displayWidth - mc.fontRenderer.getStringWidth(hack.getName()) - 5;
+				int posX = displayWidth - mc.fontRenderer.getStringWidth(hack.getName()) - 2;
 				
 				renderer.drawString(hack.getName(), posX, 2 + (posY * 10), hack.getColor());
 				++posY;

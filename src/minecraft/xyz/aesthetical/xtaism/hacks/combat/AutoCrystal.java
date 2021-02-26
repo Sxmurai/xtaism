@@ -17,7 +17,7 @@ import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 
 @Hack(name = "Auto Crystal", description = "Auto hits placed crystals", color = 16073282)
-@Keybind(key = Keyboard.KEY_M)
+@Keybind(key = Keyboard.KEY_NONE)
 @Category(category = Group.COMBAT)
 public class AutoCrystal extends Mod {
 	// TODO: make these settings

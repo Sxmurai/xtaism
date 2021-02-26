@@ -18,6 +18,7 @@ import xyz.aesthetical.xtaism.hacks.blocks.*;
 import xyz.aesthetical.xtaism.hacks.combat.*;
 import xyz.aesthetical.xtaism.hacks.movement.*;
 import xyz.aesthetical.xtaism.hacks.other.*;
+import xyz.aesthetical.xtaism.hacks.player.*;
 import xyz.aesthetical.xtaism.hacks.render.*;
 
 public class Xtaism {
@@ -49,6 +50,9 @@ public class Xtaism {
 		hacks.add(new AutoTotem());
 		hacks.add(new Criticals());
 		hacks.add(new KillAura());
+		
+		// Add player hacks
+		hacks.add(new Nofall());
 		
 		// Add other hacks
 		hacks.add(new FancyChat());

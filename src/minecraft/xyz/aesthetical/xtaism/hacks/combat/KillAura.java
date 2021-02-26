@@ -16,7 +16,7 @@ import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 	description = "Attacks anybody in your aura",
 	color = 16073282
 )
-@Keybind(key = Keyboard.KEY_NONE)
+@Keybind(key = Keyboard.KEY_N)
 @Category(category = Group.COMBAT)
 public class KillAura extends Mod {
 	// TODO: make these settings
