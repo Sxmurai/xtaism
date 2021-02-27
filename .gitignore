@@ -10,6 +10,7 @@ reobf/
 runtime/
 src/minecraft/net
 src/minecraft/mcp
+src/minecraft/org
 src/minecraft/Start.java
 temp/
 
