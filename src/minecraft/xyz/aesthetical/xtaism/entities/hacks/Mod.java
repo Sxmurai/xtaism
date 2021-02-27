@@ -19,6 +19,11 @@ public abstract class Mod implements Module {
 		return this.getClass().getAnnotation(Category.class).category();
 	}
 	
+	public String getCategoryName() {
+		String categoryName = getCategory().toString();
+		return Character.toUpperCase(categoryName.charAt(0)) + categoryName.substring(1).toLowerCase();
+	}
+	
 	public int getKey() throws NullPointerException {
 		return this.getClass().getAnnotation(Keybind.class).key();
 	}

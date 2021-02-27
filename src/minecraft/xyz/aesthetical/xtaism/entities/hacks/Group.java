@@ -7,4 +7,5 @@ public enum Group {
 	PLAYER,
 	BLOCKS,
 	COMBAT,
+	HIDDEN
 }

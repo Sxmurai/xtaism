@@ -14,6 +14,7 @@ import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import xyz.aesthetical.xtaism.entities.hacks.Mod;
+import xyz.aesthetical.xtaism.gui.clickgui.Renderer;
 
 public class XtaismGUI extends GuiIngame {
 	protected Minecraft mc;
@@ -33,6 +34,7 @@ public class XtaismGUI extends GuiIngame {
 		
 		// add the things to render
 		this.renderHacksOverlay(fontRenderer, scaledRes.getScaledWidth());
+		Renderer.renderAndUpdateFrames();
 		
 		if (mc.xtaism.settings.shouldShowCoords()) {
 			this.renderCoordinateOverlay(fontRenderer, scaledRes.getScaledWidth(), scaledRes.getScaledHeight());
