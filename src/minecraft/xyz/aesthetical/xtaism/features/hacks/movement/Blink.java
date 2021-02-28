@@ -13,9 +13,10 @@ import xyz.aesthetical.xtaism.entities.hacks.Mod;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Category;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
+import xyz.aesthetical.xtaism.features.gui.options.XtaismOptions.KeybindOpt;
 
 @Hack(name = "Blink", description = "Makes it look like youre lagging while moving", color = 11261429)
-@Keybind(key = Keyboard.KEY_NONE)
+@Keybind(setting = KeybindOpt.KEYBIND_BLINK)
 @Category(category = Group.MOVEMENT)
 public class Blink extends Mod {
 	// TODO: make these settings

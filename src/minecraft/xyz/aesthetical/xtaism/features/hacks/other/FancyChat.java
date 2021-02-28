@@ -9,13 +9,10 @@ import xyz.aesthetical.xtaism.entities.hacks.Mod;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Category;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
+import xyz.aesthetical.xtaism.features.gui.options.XtaismOptions.KeybindOpt;
 
-@Hack(
-		name = "FancyChat", 
-		description = "Makes your messages in chat *fancy*",
-		color = 11261429
-)
-@Keybind(key = Keyboard.KEY_NONE)
+@Hack(name = "FancyChat", description = "Makes your messages in chat *fancy*", color = 11261429)
+@Keybind(setting = KeybindOpt.KEYBIND_FANCYCHAT)
 @Category(category = Group.OTHER)
 public class FancyChat extends Mod {
 	@Override

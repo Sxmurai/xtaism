@@ -13,9 +13,10 @@ import xyz.aesthetical.xtaism.entities.hacks.annotations.Category;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 import xyz.aesthetical.xtaism.utils.RenderUtils;
+import xyz.aesthetical.xtaism.features.gui.options.XtaismOptions.KeybindOpt;
 
 @Hack(name = "PlayerESP", description = "Creates tracers to all players", color = 11232833)
-@Keybind(key = Keyboard.KEY_NONE)
+@Keybind(setting = KeybindOpt.KEYBIND_PLAYERESP)
 @Category(category = Group.RENDER)
 public class PlayerESP extends Mod {	
 	@Override

@@ -9,9 +9,10 @@ import xyz.aesthetical.xtaism.entities.hacks.annotations.Category;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 import xyz.aesthetical.xtaism.features.gui.clickgui.Renderer;
+import xyz.aesthetical.xtaism.features.gui.options.XtaismOptions.KeybindOpt;;
 
 @Hack(name = "ClickGUI", description = "The client's GUI", color = 16777215)
-@Keybind(key = Keyboard.KEY_RSHIFT)
+@Keybind(setting = KeybindOpt.KEYBIND_CLICKGUI)
 @Category(category = Group.HIDDEN)
 public class ClickGUI extends Mod {
 	@Override

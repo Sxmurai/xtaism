@@ -11,13 +11,14 @@ import xyz.aesthetical.xtaism.entities.hacks.Mod;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Category;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
+import xyz.aesthetical.xtaism.features.gui.options.XtaismOptions.KeybindOpt;
 
 @Hack(
 	name = "KillAura", 
 	description = "Attacks anybody in your aura",
 	color = 16073282
 )
-@Keybind(key = Keyboard.KEY_N)
+@Keybind(setting = KeybindOpt.KEYBIND_KILLAURA)
 @Category(category = Group.COMBAT)
 public class KillAura extends Mod {
 	// TODO: make these settings

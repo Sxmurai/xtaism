@@ -14,9 +14,10 @@ import xyz.aesthetical.xtaism.entities.hacks.annotations.Category;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 import xyz.aesthetical.xtaism.utils.RenderUtils;
+import xyz.aesthetical.xtaism.features.gui.options.XtaismOptions.KeybindOpt;
 
 @Hack(name = "ChestESP", description = "Creates tracers to all chest entities", color = 11232833)
-@Keybind(key = Keyboard.KEY_NONE)
+@Keybind(setting = KeybindOpt.KEYBIND_CHESTESP)
 @Category(category = Group.RENDER)
 public class ChestESP extends Mod {
 	@Override

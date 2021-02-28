@@ -6,6 +6,7 @@ import xyz.aesthetical.xtaism.entities.Feature;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Category;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
+import xyz.aesthetical.xtaism.features.gui.options.XtaismOptions.KeybindOpt;
 
 public abstract class Mod implements Feature {
 	private boolean toggled = false;
@@ -15,7 +16,7 @@ public abstract class Mod implements Feature {
 		return this.getClass().getAnnotation(Hack.class);
 	}
 	
-	public Group getCategory() throws NullPointerException {
+	public Group getCategory() {
 		return this.getClass().getAnnotation(Category.class).category();
 	}
 	
@@ -24,8 +25,12 @@ public abstract class Mod implements Feature {
 		return Character.toUpperCase(categoryName.charAt(0)) + categoryName.substring(1).toLowerCase();
 	}
 	
-	public int getKey() throws NullPointerException {
-		return this.getClass().getAnnotation(Keybind.class).key();
+	public Keybind getKeyBindInfo() {
+		return this.getClass().getAnnotation(Keybind.class);
+	}
+	
+	public KeybindOpt getKeybindSetting() {
+		return getKeyBindInfo().setting();
 	}
 	
 	public void onEnable() {}

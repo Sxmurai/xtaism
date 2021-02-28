@@ -7,13 +7,14 @@ import xyz.aesthetical.xtaism.entities.hacks.Mod;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Category;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
+import xyz.aesthetical.xtaism.features.gui.options.XtaismOptions.KeybindOpt;
 
 @Hack(
 	name = "Auto Sprint", 
 	description = "Makes you sprint whenever you start walking",
 	color = 11261429
 )
-@Keybind(key = Keyboard.KEY_NONE)
+@Keybind(setting = KeybindOpt.KEYBIND_AUTOSPRINT)
 @Category(category = Group.MOVEMENT)
 public class AutoSprint extends Mod {
 	@Override

@@ -28,8 +28,10 @@ public class CommandManager {
 	public void load() {
 		// add shit here
 		modules.add(new GitHub());
-		modules.add(new Toggle());
+		modules.add(new Keybind());
 		modules.add(new Settings());
+		modules.add(new Toggle());
+		modules.add(new TestNotification());
 		
 		LOGGER.info("Loaded {} commands", modules.size());
 	}
@@ -84,13 +86,17 @@ public class CommandManager {
 			if (!argAnnotated.isEmpty()) {
 				for (Arg argument : argAnnotated) {
 					if (argument.index() != -1) {
-						String failureString = command.parseCustom(args.get(argument.index()), argument.key(), args);
-						
-						if (failureString.isEmpty()) {
+						try {
+							String failureString = command.parseCustom(args.get(argument.index()), argument.key(), args);
+							
+							if (failureString.isEmpty()) {
+								continue;
+							} else {
+								command.send(ChatUtil.text(ChatColor.RED, true, "Xtaism") + failureString);
+								return;
+							}	
+						} catch (Exception e) {
 							continue;
-						} else {
-							command.send(ChatUtil.text(ChatColor.RED, true, "Xtaism") + failureString);
-							return;
 						}
 					}
 				}

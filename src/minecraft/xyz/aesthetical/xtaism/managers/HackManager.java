@@ -60,7 +60,7 @@ public class HackManager {
 	
 	public void handleKeyPressed(int key) {
 		for (Mod hack : modules) {
-			if (hack.getKey() == key) {
+			if (hack.getKeybindSetting().getKey() == key) {
 				hack.toggle();
 			}
 		}
