@@ -2,12 +2,12 @@ package xyz.aesthetical.xtaism.entities.hacks;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.Packet;
-import xyz.aesthetical.xtaism.entities.Module;
+import xyz.aesthetical.xtaism.entities.Feature;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Category;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 
-public abstract class Mod implements Module {
+public abstract class Mod implements Feature {
 	private boolean toggled = false;
 	public Minecraft mc = Minecraft.getMinecraft();
 	

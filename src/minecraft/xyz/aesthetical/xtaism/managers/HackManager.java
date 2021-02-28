@@ -9,13 +9,13 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.client.Minecraft;
 import xyz.aesthetical.xtaism.entities.hacks.Mod;
-import xyz.aesthetical.xtaism.hacks.ClickGUI;
-import xyz.aesthetical.xtaism.hacks.blocks.*;
-import xyz.aesthetical.xtaism.hacks.combat.*;
-import xyz.aesthetical.xtaism.hacks.movement.*;
-import xyz.aesthetical.xtaism.hacks.other.*;
-import xyz.aesthetical.xtaism.hacks.player.*;
-import xyz.aesthetical.xtaism.hacks.render.*;
+import xyz.aesthetical.xtaism.features.hacks.ClickGUI;
+import xyz.aesthetical.xtaism.features.hacks.blocks.*;
+import xyz.aesthetical.xtaism.features.hacks.combat.*;
+import xyz.aesthetical.xtaism.features.hacks.movement.*;
+import xyz.aesthetical.xtaism.features.hacks.other.*;
+import xyz.aesthetical.xtaism.features.hacks.player.*;
+import xyz.aesthetical.xtaism.features.hacks.render.*;
 
 public class HackManager {
 	protected ArrayList<Mod> modules = new ArrayList();

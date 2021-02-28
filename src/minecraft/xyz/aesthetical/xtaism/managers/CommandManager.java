@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.text.TextComponentString;
-import xyz.aesthetical.xtaism.commands.*;
+import xyz.aesthetical.xtaism.features.commands.*;
 import xyz.aesthetical.xtaism.entities.commands.Command;
 import xyz.aesthetical.xtaism.entities.commands.annotations.Arg;
 import xyz.aesthetical.xtaism.entities.commands.annotations.Args;
@@ -27,6 +27,7 @@ public class CommandManager {
 	
 	public void load() {
 		// add shit here
+		modules.add(new GitHub());
 		modules.add(new Toggle());
 		modules.add(new Settings());
 		

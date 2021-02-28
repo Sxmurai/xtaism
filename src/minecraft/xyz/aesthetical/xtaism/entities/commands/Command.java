@@ -5,12 +5,12 @@ import java.util.List;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.text.TextComponentString;
-import xyz.aesthetical.xtaism.entities.Module;
+import xyz.aesthetical.xtaism.entities.Feature;
 import xyz.aesthetical.xtaism.entities.commands.annotations.Cmd;
 import xyz.aesthetical.xtaism.utils.ChatUtil;
 import xyz.aesthetical.xtaism.utils.ChatUtil.ChatColor;
 
-public abstract class Command implements Module {
+public abstract class Command implements Feature {
 	public Cmd getCmdInfo() throws NullPointerException {
 		return this.getClass().getDeclaredAnnotation(Cmd.class);
 	}
