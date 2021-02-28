@@ -24,6 +24,10 @@ public class Criticals extends Mod {
 			return false;
 		}
 		
+		if (!mc.player.onGround) {
+			return false;
+		}
+		
 		mc.player.jump();
 		
 		return false;

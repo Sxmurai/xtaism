@@ -2,7 +2,10 @@ package xyz.aesthetical.xtaism.hacks.combat;
 
 import org.lwjgl.input.Keyboard;
 
+import net.minecraft.init.Items;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemShield;
 import net.minecraft.item.ItemStack;
 import xyz.aesthetical.xtaism.entities.hacks.Group;
 import xyz.aesthetical.xtaism.entities.hacks.Mod;
@@ -17,26 +20,26 @@ import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 )
 @Keybind(key = Keyboard.KEY_NONE)
 @Category(category = Group.COMBAT)
-public class AutoTotem extends Mod {
-	private ItemStack totem = new ItemStack(Item.getItemById(449));
-	
-	@Override
-	public void onEnable() {
-		if (mc.player.getHeldItemOffhand() != totem) {
-			addTotemToOffhand();
-		}
-	}
-	
+public class AutoTotem extends Mod {	
+	// TODO: broken, fix
 	@Override
 	public void onUpdate() {
-		if (mc.player.getHeldItemOffhand() != totem) {
-			addTotemToOffhand();
-		}
-	}
-	
-	private void addTotemToOffhand() {
-		if (mc.player.inventory.hasItemStack(totem)) {
-			
+		if (
+			mc.player.inventory.offHandInventory.isEmpty() || 
+			mc.player.inventory.offHandInventory.get(0).getItem() != Items.TOTEM_OF_UNDYING
+		) {			
+			if (mc.player.inventory.hasItemStack(new ItemStack(Items.TOTEM_OF_UNDYING))) {				
+				int totemIndex = mc.player.inventory.getSlotFor(new ItemStack(Items.TOTEM_OF_UNDYING));
+							
+				System.out.println(totemIndex);
+				
+				if (totemIndex != -1) {
+					mc.player.inventory.setInventorySlotContents(
+						mc.player.inventory.getSizeInventory() - 1,
+						mc.player.inventory.removeStackFromSlot(totemIndex)
+					);
+				}
+			}
 		}
 	}
 }

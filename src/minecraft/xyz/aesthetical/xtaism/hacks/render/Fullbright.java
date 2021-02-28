@@ -9,7 +9,7 @@ import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 
 @Hack(name = "Fullbright", description = "Makes it so you can see even in the dark", color = 16574467)
-@Keybind(key = Keyboard.KEY_1)
+@Keybind(key = Keyboard.KEY_NONE)
 @Category(category = Group.RENDER)
 public class Fullbright extends Mod {	
 	@Override

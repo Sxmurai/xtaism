@@ -37,9 +37,13 @@ public class Xtaism {
 		gui = new GUIManager();
 		
 		// Add movement hacks	
+		hacks.add(new AutoSneak());
 		hacks.add(new AutoSprint());
+		hacks.add(new Blink());
 		hacks.add(new BunnyHop());
+		hacks.add(new Flight());
 		hacks.add(new Jesus());
+		hacks.add(new Spider());
 		
 		// Add render
 		hacks.add(new ChestESP());
@@ -57,6 +61,7 @@ public class Xtaism {
 		hacks.add(new KillAura());
 		
 		// Add player hacks
+		hacks.add(new AutoRespawn());
 		hacks.add(new Nofall());
 		
 		// Add other hacks

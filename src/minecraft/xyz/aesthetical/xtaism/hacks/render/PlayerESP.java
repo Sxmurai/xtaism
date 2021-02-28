@@ -15,7 +15,7 @@ import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 import xyz.aesthetical.xtaism.utils.RenderUtils;
 
 @Hack(name = "PlayerESP", description = "Creates tracers to all players", color = 11232833)
-@Keybind(key = Keyboard.KEY_3)
+@Keybind(key = Keyboard.KEY_NONE)
 @Category(category = Group.RENDER)
 public class PlayerESP extends Mod {	
 	@Override
@@ -23,20 +23,28 @@ public class PlayerESP extends Mod {
 		GL11.glPushMatrix();
 		
 		for (EntityPlayer player : mc.world.playerEntities) {
+			if (player == mc.player || !(player instanceof EntityPlayer)) {
+				continue;
+			}
+						
 			float dis = (float) (mc.player.getDistanceSq(player.lastTickPosX, player.lastTickPosY, player.lastTickPosZ) / 20f);
 			
-			double[] coords = getGlPos(player.posX, player.posY, player.posZ);
+			double[] coords = getGlPos(player);
 			RenderUtils.drawTracers(coords[0], coords[1], coords[2], 2 - dis, dis, 0);
 		}
 		
 		GL11.glPopMatrix();
 	}
 	
-	public double[] getGlPos(double x, double y, double z) {
+	public double[] getGlPos(EntityPlayer player) {
 		return new double[] {
-			x - mc.getRenderManager().viewerPosX,
-			y - mc.getRenderManager().viewerPosY,
-			z - mc.getRenderManager().viewerPosZ
+			interpolate(player.posX, player.lastTickPosX) - mc.getRenderManager().viewerPosX,
+			interpolate(player.posY, player.lastTickPosY) - mc.getRenderManager().viewerPosY,
+			interpolate(player.posZ, player.lastTickPosZ) - mc.getRenderManager().viewerPosZ,
 		};
 	}
+	
+	private double interpolate(double now, double then) {
+        return then + (now - then) * mc.getRenderPartialTicks();
+    }
 }

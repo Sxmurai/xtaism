@@ -12,7 +12,7 @@ import xyz.aesthetical.xtaism.entities.hacks.annotations.Hack;
 import xyz.aesthetical.xtaism.entities.hacks.annotations.Keybind;
 
 @Hack(name = "Freecam", description = "Allows you to move your camera anywhere", color = 14570477)
-@Keybind(key = Keyboard.KEY_0)
+@Keybind(key = Keyboard.KEY_NONE)
 @Category(category = Group.RENDER)
 public class FreeCam extends Mod {
 	protected BlockPos oldPos;

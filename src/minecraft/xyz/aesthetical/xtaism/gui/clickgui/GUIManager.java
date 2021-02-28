@@ -51,7 +51,6 @@ public final class GUIManager extends AbstractGuiManager {
 			}
 			
 			frame.add(new BasicLabel(hack.getName()));
-			System.out.println(hack.getCategoryName() + frame.getChildren().length);
 			
 			Button toggler = new BasicButton(hack.isToggled() ? "Disable" : "Enable") {
 				@Override
