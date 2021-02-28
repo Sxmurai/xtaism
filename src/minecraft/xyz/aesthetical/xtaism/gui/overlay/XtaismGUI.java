@@ -48,7 +48,7 @@ public class XtaismGUI extends GuiIngame {
 	private void renderHacksOverlay(FontRenderer renderer, int displayWidth) {
 		int posY = 0;
 						
-		for (Mod hack : this.mc.xtaism.getHacks()) {
+		for (Mod hack : this.mc.xtaism.getHackManager().getHacks()) {
 			if (hack.isToggled()) {
 				// calculate where the text should be, since we're putting it on the right
 				int posX = displayWidth - mc.fontRenderer.getStringWidth(hack.getName()) - 2;

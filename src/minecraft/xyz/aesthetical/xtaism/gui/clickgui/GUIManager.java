@@ -30,7 +30,7 @@ public final class GUIManager extends AbstractGuiManager {
 	public void setup() {		
 		final Map<Group, ModuleFrame> frames = new HashMap();
 		
-		for (Mod hack : Minecraft.getMinecraft().xtaism.getHacks()) {
+		for (Mod hack : Minecraft.getMinecraft().xtaism.getHackManager().getHacks()) {
 			if (hack.getCategory() == Group.HIDDEN) {
 				continue;
 			}

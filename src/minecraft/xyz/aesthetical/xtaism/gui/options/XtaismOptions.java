@@ -55,8 +55,8 @@ public class XtaismOptions {
 		try {			
 			writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(this.optionsFile), StandardCharsets.UTF_8));
 			
-			writer.printf("showFps=%s", SHOW_FPS);	
-			writer.printf("showCoords=%s", SHOW_COORDS);	
+			writer.printf("showFps=%s\n", SHOW_FPS);	
+			writer.printf("showCoords=%s\n", SHOW_COORDS);	
 			
 			writer.close();
 		} catch (Exception e) {
